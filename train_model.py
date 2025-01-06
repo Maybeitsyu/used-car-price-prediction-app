@@ -1,7 +1,9 @@
 import pandas as pd
+import pickle
+from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-import pickle
+
 
 # Load your dataset (make sure 'data.csv' is in the same directory as this script)
 data = pd.read_csv('data.csv')
