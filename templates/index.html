@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Predictor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Used Car Price Predictor</a>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <h1 class="text-center">Predict Used Car Price</h1>
+        
+        <!-- Input Form -->
+        <form method="POST" action="/predict">
+            <div class="mb-3">
+                <label for="engine_hp" class="form-label">Engine HP:</label>
+                <input type="number" class="form-control" id="engine_hp" name="engine_hp" required>
+            </div>
+            <div class="mb-3">
+                <label for="year" class="form-label">Year:</label>
+                <input type="number" class="form-control" id="year" name="year" required>
+            </div>
+            <div class="mb-3">
+                <label for="highway_mpg" class="form-label">Highway MPG:</label>
+                <input type="number" class="form-control" id="highway_mpg" name="highway_mpg" required>
+            </div>
+            <!-- Car Brand Input -->
+            <div class="mb-3">
+                <label for="brand" class="form-label">Car Brand:</label>
+                <input type="text" class="form-control" id="brand" name="brand" placeholder="Enter car brand" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Predict Price</button>
+        </form>
+
+        <!-- Display Predicted Price -->
+        {% if predicted_price %}
+            <div class="mt-4 text-center">
+                <h3>Predicted Price: <span class="text-success">₱{{ predicted_price }}</span></h3>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
